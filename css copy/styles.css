@@ -1,0 +1,445 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --ff: 'Poppins', sans-serif;
+  /* font-weight */
+  --fw-thin: 100;
+  --fw-x-light: 200;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-x-bold: 800;
+  --fw-black: 900;
+  --fs-n: normal;
+  --fs-i: italic;
+  /* NAV */
+  --nav-button-fs: 1.2rem;
+  --nav-logo-scale: 15%;
+  --nav-button-spacing: 4rem;
+  --nav-button-padding: .15rem 1rem;
+  --nav-btn-border-radius: 1.8rem;
+  --nav-btn-outline-width: .25rem;
+  --burger-width: 25px;
+  --burger-height: 3px;
+  /* HOME */
+  --home-name-fs: 10rem;
+  --home-name-line-height: 1.5ch;
+  --home-quote-fs: 2rem;
+  --home-quote-emphasis: 2.2rem;
+  --home-quote-line-height: 4ch;
+  /* PROJECTS */
+  --project-heading-fs: 2rem;
+  --project-letter-spacing: .35ch;
+  --card-container-padding: 2rem;
+  --project-card-content-fs: 1rem;
+  --project-card-max-width: 300px;
+  --project-card-height: 245px;
+  --project-card-margin: 8rem 3rem;
+  --project-card-img-scale: 260px;
+  --project-card-img-top: -6rem;
+  --project-card-img-left: 1.5rem;
+  --project-card-content-margin-top: -12rem;
+  --project-card-content-padding: 1rem 1rem;
+  --project-card-hover-height: 30rem;
+  /* ABOUT */
+  --about-pre-heading-fs: 2rem;
+  --about-heading-fs: 2.5rem;
+  --about-p-fs: 1.4rem;
+  /* SKILLS */
+  --skills-title-fs: 2.5rem;
+  --skills-category-title-fs: 1.5rem;
+  --skills-item-fs: 1rem;
+  /* PRE-CONTACT */
+  --pre-contact-fs: 2.5rem;
+  --pre-contact-letter-spacing: .35ch;
+  --pre-contact-emphasis-padding: .25ch;
+  --pre-contact-emphasis-fs: 2.2rem;
+  --pre-contact-or-just-fs: 2.5rem;
+  /* CONTACT */
+  --contact-main-title-fs: 2.5rem;
+  --contact-type-fs: 1rem;
+  --contact-link-fs: 1.4rem;
+  --contact-info-padding: 1ch;
+  --contact-submit-button-fs: 1rem;
+  /* FOOTER */
+  --footer-height: 5vh;
+  --quick-link-fs: 1.6rem;
+  --copyright-fs: 1rem;
+  /* BG Colors */
+  --bg-color: #233554;
+  --bg-color-drk: #18253b;
+  /* Text */
+  --txt-primary: rgb(237, 237, 237);
+  --txt-secondary: rgb(197, 227, 226);
+  --txt-visited: rgb(195, 195, 195);
+  --txt-focus: #81e4ef;
+  --txt-clicked: #6cd8b7;
+  --txt-disabled: #8BBEDB;
+  /* Buttons */
+  --btn-one: #71d4df82;
+  --btn-two: #58b0ba;
+  --btn-three: #6c93aa;
+  --btn-four: #7daac4;
+}
+
+button {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--btn-one);
+  border-width: none;
+  color: var(--txt-primary);
+  -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.44);
+          box-shadow: 5px 5px rgba(0, 0, 0, 0.44);
+}
+
+body {
+  color: var(--txt-secondary);
+  font-family: var(--ff);
+}
+
+h1 {
+  font-size: 7rem;
+  line-height: 1.5ch;
+}
+
+.portfolio {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 100px 1520px auto;
+      grid-template-columns: auto 100px 1520px auto;
+      grid-template-areas: "left scroll content right" "left footer footer right";
+}
+
+.portfolio .margin1 {
+  background-color: #353535;
+  grid-area: "left";
+}
+
+.portfolio .margin2 {
+  background-color: #353535;
+  grid-area: "right";
+}
+
+.portfolio .scroll {
+  background-color: var(--bg-color);
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: scroll;
+}
+
+.portfolio .content {
+  /* background-color: rgb(88, 135, 47); */
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: content;
+}
+
+.portfolio .content .home {
+  background-color: var(--bg-color);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+  height: 100vh;
+}
+
+.portfolio .content .home .nav {
+  background-color: var(--bg-color);
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1 / 11;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.portfolio .content .home .nav .toggles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+}
+
+.portfolio .content .home .nav .toggles li {
+  padding: 1rem;
+}
+
+.portfolio .content .home .name {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 4;
+  grid-row: 5/9;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.portfolio .content .home .social-links {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 1;
+  grid-row: 9/10;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.portfolio .content .home .social-links li {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.portfolio .content .home .subheading {
+  -ms-grid-row: 10;
+  -ms-grid-row-span: 1;
+  grid-row: 10/11;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.portfolio .content .home .projects-button {
+  -ms-grid-row: 12;
+  -ms-grid-row-span: 1;
+  grid-row: 12/13;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  -ms-flex-item-align: top;
+      -ms-grid-row-align: top;
+      align-self: top;
+}
+
+.portfolio .content .home .about-button {
+  -ms-grid-row: 13;
+  -ms-grid-row-span: 2;
+  grid-row: 13/15;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.portfolio .content .home .contact-button {
+  -ms-grid-row: 15;
+  -ms-grid-row-span: 1;
+  grid-row: 15/16;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.portfolio .content .home .scroll-icon {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1/11;
+  -ms-grid-row: 18;
+  -ms-grid-row-span: 2;
+  grid-row: 18/20;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.portfolio .content .projects {
+  background-color: var(--bg-color);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+  height: 100vh;
+}
+
+.portfolio .content .projects .heading {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  grid-row: 3/6;
+}
+
+.portfolio .content .projects .subheading {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 1;
+  grid-row: 6/7;
+}
+
+.portfolio .content .projects .cards {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 6;
+  grid-row: 8/14;
+}
+
+.portfolio .content .projects .not-satisfied {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-column: 3/7;
+  -ms-grid-row: 15;
+  -ms-grid-row-span: 3;
+  grid-row: 15/18;
+  /*      justify-self: center;
+                align-self: center;
+ */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.portfolio .content .projects .projects-and-resume-buttons {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 4;
+  grid-column: 3/7;
+  -ms-grid-row: 16;
+  -ms-grid-row-span: 2;
+  grid-row: 16/18;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.portfolio .content .skills {
+  background-color: var(--bg-color);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+  height: 100vh;
+}
+
+.portfolio .content .skills .heading {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  grid-row: 3/6;
+}
+
+.portfolio .content .skills .skills-columns {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 6;
+  grid-row: 9/15;
+}
+
+.portfolio .content .skills .contact-button {
+  -ms-grid-row: 15;
+  -ms-grid-row-span: 2;
+  grid-row: 15/17;
+}
+
+.portfolio .content .skills .more-about-button {
+  -ms-grid-row: 15;
+  -ms-grid-row-span: 2;
+  grid-row: 15/17;
+}
+
+.portfolio .content .skills .social-links {
+  -ms-grid-row: 17;
+  -ms-grid-row-span: 2;
+  grid-row: 17/19;
+}
+
+.portfolio .content .contact {
+  background-color: var(--bg-color);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  -ms-grid-rows: (1fr)[20];
+      grid-template-rows: repeat(20, 1fr);
+  height: 90vh;
+}
+
+.portfolio .content .contact .heading {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 4;
+  grid-row: 3/7;
+}
+
+.portfolio .content .contact .contact-items {
+  -ms-grid-row: 6;
+  -ms-grid-row-span: 2;
+  grid-row: 6/8;
+}
+
+.portfolio .content .contact .or-use-form {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 2;
+  grid-row: 8/10;
+}
+
+.portfolio .content .contact .contact-form {
+  -ms-grid-row: 9;
+  -ms-grid-row-span: 6;
+  grid-row: 9/15;
+}
+
+.portfolio .content .contact .send-button {
+  -ms-grid-row: 15;
+  -ms-grid-row-span: 2;
+  grid-row: 15/17;
+}
+
+.portfolio .footer {
+  background-color: var(--bg-color-drk);
+  grid-area: "footer";
+  height: 10vh;
+}
+/*# sourceMappingURL=styles.css.map */

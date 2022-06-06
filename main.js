@@ -1,5 +1,23 @@
 gsap.registerPlugin(ScrollTrigger);
+/* =====================================
 
+    light and dark mode
+=====================================*/
+
+const darkMode = document.getElementById('dark-mode');
+darkMode.addEventListener("change", () => {
+    document.body.classList.toggle('light');
+});
+
+
+
+
+
+
+/* =====================================
+
+    scroll circles
+=====================================*/
 gsap.from(".home", {
     scrollTrigger: {
         trigger: ".home",

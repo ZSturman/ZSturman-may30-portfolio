@@ -6,7 +6,6 @@
 2. main grid (margins, footer, portfolio)
 3. scroll-circles
 4. content/ section setup
-    a. checkboxes
 5. home/ nav
 6. projects
     6a. card1
@@ -91,131 +90,41 @@
   --card-project-title: 3.5rem;
   /* BG Colors */
   /* --bg-color: #233554; */
-  --bg-color-dark-mode: #0f1624;
-  --bg-color-light-mode: #7b9de2;
+  --bg-color: #0f1624;
   --bg-color-faded: #0f162469;
   --bg-color-drk: #18253b;
   /* Text colors*/
-  --txt-primary-dark-mode: rgb(188, 209, 226);
-  --txt-primary-light-mode: rgb(52, 53, 65);
-  --txt-btn-light-mode: rgb(164, 213, 231);
-  --txt-secondary-dark-mode: rgb(172, 199, 198);
-  --txt-secondary-light-mode: rgb(14, 28, 72);
+  --txt-primary: rgb(237, 237, 237);
   --txt-primary2:rgb(193, 219, 229);
   --txt-primary2-faded:rgba(193, 219, 229, 0.613);
   --txt-primary-faded: rgba(237, 237, 237,.25);
+  --txt-secondary: rgb(172, 199, 198);
   --txt-visited: rgb(195, 195, 195);
   --txt-focus: #81e4ef;
   --txt-clicked: #6cd8b7;
   --txt-disabled: #8BBEDB;
   /* Button colors*/
-  --btn-one-dark-mode: #7daac4;
-  --btn-one-faded-dark-mode: #7daac479;
-  --btn-one-light-mode: #32444e;
-  --btn-one-faded-light-mode: #192328c7;
-  --btn-two-dark-mode: #71d4df82;
-  --btn-two-light-mode: #0d2f33c3;
-  --btn-three-dark-mode: #7daac4;
-  --btn-three-light-mode:#193c4f;
-  --btn-scroll-icon: #7daac479;
   --btn-one: #71d4df82;
   --btn-two: #58b0ba;
   --btn-three: #6c93aa;
   --btn-four-logos-icons: #7daac4;
   --btn-four-logos-icons-faded: #7daac479;
-  --btn-color-drk: #18253b;
-  --btn-color-light: #2b4268;
   --box-shadow-main: 0px 5px rgba(0, 0, 0, 0.2);
   --box-shadow-hover: 4px 7px rgba(0, 0, 0, 0.34);
 }
 
-html {
+html, body {
   max-width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
-
-body.light {
-  background-color: var(--bg-color-light-mode);
-  color: var(--txt-secondary-light-mode);
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
-}
-
-body.light a {
-  color: var(--txt-primary-light-mode);
-}
-
-body.light .logo {
-  fill: var(--btn-one-faded-light-mode);
-}
-
-body.light .button {
-  background-color: var(--btn-two-light-mode);
-}
-
-body.light .button a {
-  color: var(--txt-btn-light-mode);
-}
-
-body.light .button a:hover {
-  color: var(--txt-secondary-light-mode);
-}
-
-body.light .social-links li a {
-  color: var(--txt-secondary-light-mode);
-}
-
-body.light .toggles {
-  color: var(--btn-three-light-mode);
-}
-
-body.light .scroll-icon-color {
-  color: var(--btn-scroll-icon);
-}
-
-body {
-  background-color: var(--bg-color-dark-mode);
-  color: var(--txt-primary-dark-mode);
+  background-color: var(--bg-color);
+  color: var(--txt-secondary);
   font-family: var(--ff);
-  -webkit-transition: all 200ms ease-in-out;
-  transition: all 200ms ease-in-out;
-}
-
-body a {
-  color: var(--txt-primary-dark-mode);
-}
-
-body .logo {
-  fill: var(--btn-one-faded-dark-mode);
-}
-
-body .button {
-  background-color: var(--btn-two-dark-mode);
-}
-
-body .button a {
-  color: var(--txt-primary-dark-mode);
-}
-
-body .button a:hover {
-  color: var(--txt-secondary-dark-mode);
-}
-
-body .social-links li a {
-  color: var(--txt-secondary-dark-mode);
-}
-
-body .toggles {
-  color: var(--btn-three-dark-mode);
-}
-
-body .scroll-icon-color {
-  color: var(--btn-scroll-icon);
 }
 
 a {
   text-decoration: none;
+  color: var(--txt-primary);
   font-size: var(--a-fs);
   padding: 1rem;
 }
@@ -257,6 +166,7 @@ h6 {
 .button {
   border-radius: 1.5rem;
   padding: 0 1rem;
+  background-color: var(--btn-one);
   border-width: none;
   -webkit-box-shadow: var(--box-shadow-main);
           box-shadow: var(--box-shadow-main);
@@ -275,6 +185,7 @@ h6 {
 
 .button a {
   font-size: var(--btn-fs);
+  color: var(--txt-primary);
 }
 
 .button:hover {
@@ -282,6 +193,10 @@ h6 {
           box-shadow: var(--box-shadow-hover);
   -webkit-transform: translateX(-0.1rem) translateY(-0.2rem);
           transform: translateX(-0.1rem) translateY(-0.2rem);
+}
+
+.button a:hover {
+  color: var(--txt-secondary);
 }
 
 .social-links {
@@ -299,6 +214,10 @@ h6 {
           flex-direction: row;
 }
 
+.social-links li a {
+  color: var(--txt-secondary);
+}
+
 .social-links li:hover {
   opacity: 0.7;
   -webkit-transform: scale(1.2);
@@ -310,203 +229,41 @@ h6 {
 2. main grid (margins, footer, portfolio)
 
 =====================================*/
-.portfolio {
+.greenhorn-portfolio {
   width: 100vw;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto minmax(2rem, 5rem) minmax(840px, 1520px) minmax(2rem, 5rem) auto;
-      grid-template-columns: auto minmax(2rem, 5rem) minmax(840px, 1520px) minmax(2rem, 5rem) auto;
-      grid-template-areas: "left scroll content scroll-mirror right" "lefttwo footer footer footer righttwo";
+  -ms-grid-columns: auto 80vw auto;
+      grid-template-columns: auto 80vw auto;
+      grid-template-areas: "left nav-list right" "lefttwo footer righttwo";
 }
 
 .margin1 {
-  /* background-color: var(--bg-color);
-    grid-area: left; */
+  background-color: #461f46;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: left;
   min-width: 1rem;
 }
 
-.margin2a {
-  /* background-color: var(--bg-color); */
+.margin2 {
+  background-color: #2d4a2d;
   -ms-grid-row: 1;
-  -ms-grid-column: 4;
-  grid-area: scroll-mirror;
-  min-width: 4rem;
-}
-
-.margin2b {
-  /* background-color: var(--bg-color); */
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
+  -ms-grid-column: 3;
   grid-area: right;
   min-width: 1rem;
 }
 
-.scroll {
-  /*  background-color: var(--bg-color); */
+/* =====================================
+
+    nav
+
+=====================================*/
+.nav {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
-  grid-area: scroll;
-}
-
-/* TESTING */
-/* .margin1{
-    background-color: rgb(70, 31, 70);
-    grid-area: left;
-    min-width: 1rem;
-}
-.margin2a{
-    background-color: rgb(31, 31, 70);
-    grid-area: scroll-mirror;
-    min-width: 4rem;
-}
-.margin2b{
-    background-color: rgb(45, 74, 45);
-    grid-area: right;
-    min-width: 1rem;
-}
-.scroll{
-    background-color: rgb(103, 103, 42);
-    grid-area: scroll;
-} */
-/* =====================================
-
-3. scroll-circles
-
-=====================================*/
-.scroll-circles {
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  padding-right: 5rem;
-  margin-left: 1rem;
-  z-index: 999;
-}
-
-.scroll-circles li {
-  width: 1rem;
-  height: 1rem;
-  background: rgba(133, 133, 133, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  border-radius: 50%;
-  margin-top: 1.75rem;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.scroll-circles li:hover,
-.scroll-circles li.selected {
-  -webkit-transform: scale(1.8);
-          transform: scale(1.8);
-  cursor: pointer;
-}
-
-/* =====================================
-
-4. content/ section setup
-
-=====================================*/
-.content {
-  position: relative;
-  /* background-color: var(--bg-color); */
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  grid-area: content;
-  /* grid-template-rows: 100vh 100vh 100vh 90vh; */
-      grid-template-areas: "home" "projects" "skills" "contact";
-}
-
-section {
-  /* background-color: var(--bg-color); */
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[10];
-      grid-template-columns: repeat(10, 1fr);
-  -ms-grid-rows: (1fr)[20];
-      grid-template-rows: repeat(20, 1fr);
-  height: 100vh;
-}
-
-/* =====================================
-        a. checkboxes
-=====================================*/
-input[type="checkbox"].toggle {
-  opacity: 0;
-  position: absolute;
-  left: -9000px;
-  top: -9000px;
-}
-
-input[type="checkbox"].toggle + label {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-}
-
-input[type="checkbox"].toggle + label::before {
-  content: "";
-  width: 2em;
-  height: 1em;
-  background-color: var(--btn-four-logos-icons);
-  border-radius: 1em;
-  margin-right: .25em;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-}
-
-input[type="checkbox"].toggle + label::after {
-  position: absolute;
-  content: "";
-  left: .1em;
-  width: .9em;
-  height: .9em;
-  background-color: var(--btn-color-drk);
-  border-radius: 1em;
-  -webkit-transition: background-color 200ms ease-in-out;
-  transition: background-color 200ms ease-in-out;
-}
-
-input[type="checkbox"].toggle:focus + label::before {
-  outline: 2px solid gray;
-}
-
-input[type="checkbox"].toggle:checked + label::before {
-  background-color: var(--btn-color-light);
-}
-
-input[type="checkbox"].toggle:checked + label::after {
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-  background-color: var(--txt-primary2);
-}
-
-/* input[type="checkbox"].toggle:checked + label {
-    color: red;
-} */
-/* =====================================
-
-5. home/ nav
-
-=====================================*/
-.home {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: home;
-}
-
-.nav {
-  /* background-color: var(--bg-color); */
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1 / 11;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  grid-row: 1/ 4;
+  grid-area: nav-list;
+  background-color: var(--bg-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -514,21 +271,32 @@ input[type="checkbox"].toggle:checked + label::after {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 3px solid red;
+}
+
+.nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.logos {
-  position: relative;
-  top: 40%;
+.nav-list li {
+  padding-right: 3rem;
 }
 
 .logo {
   width: 50%;
+  fill: var(--btn-four-logos-icons-faded);
 }
 
 .logo-small {
@@ -546,13 +314,11 @@ input[type="checkbox"].toggle:checked + label::after {
       -ms-flex-direction: row;
           flex-direction: row;
   color: var(--btn-four-logos-icons);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
-.toggles i {
-  padding: 1rem;
+.toggles li {
+  padding: 0rem .5rem;
+  font-size: 1.5rem;
 }
 
 .toggles-dark {
@@ -576,9 +342,10 @@ input[type="checkbox"].toggle:checked + label::after {
           flex-direction: row;
 }
 
-/* .faded{
-    color: var(--btn-four-logos-icons-faded);
-} */
+.faded {
+  color: var(--btn-four-logos-icons-faded);
+}
+
 .name {
   -ms-grid-row: 7;
   -ms-grid-row-span: 4;
@@ -603,7 +370,7 @@ input[type="checkbox"].toggle:checked + label::after {
       -ms-grid-row-align: center;
       align-self: center;
   font-style: italic;
-  opacity: .6;
+  color: var(--txt-primary2-faded);
 }
 
 .home-section-buttons {
@@ -629,7 +396,7 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .home-section-buttons .home-section-button a {
   font-size: var(--btn-fs);
-  /* color: var(--txt-primary-dark-mode); */
+  color: var(--txt-primary);
 }
 
 .home-section-button button:hover {
@@ -640,7 +407,7 @@ input[type="checkbox"].toggle:checked + label::after {
 }
 
 .home-section-button button a:hover {
-  color: var(--txt-secondary-dark-mode);
+  color: var(--txt-secondary);
 }
 
 .scroll-icon {
@@ -656,6 +423,10 @@ input[type="checkbox"].toggle:checked + label::after {
   line-height: .1rem;
 }
 
+.scroll-icon a {
+  color: var(--btn-four-logos-icons-faded);
+}
+
 .scroll-icon:hover {
   cursor: pointer;
 }
@@ -666,8 +437,6 @@ input[type="checkbox"].toggle:checked + label::after {
 
 =====================================*/
 .projects {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: projects;
 }
 
@@ -761,7 +530,7 @@ input[type="checkbox"].toggle:checked + label::after {
 .card .project-title {
   font-size: var(--card-project-title);
   font-weight: var(--fw-semi-bold);
-  /* color: var(--txt-primary2); */
+  color: var(--txt-primary2);
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -790,7 +559,7 @@ input[type="checkbox"].toggle:checked + label::after {
   -ms-grid-row-span: 1;
   grid-row: 7/8;
   padding-left: 1rem;
-  /* color: var(--txt-primary2-faded); */
+  color: var(--txt-primary2-faded);
   font-weight: var(--fw-thin);
 }
 
@@ -839,7 +608,7 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .card-buttons button a {
   padding: 0;
-  /* color: var(--txt-primary2); */
+  color: var(--txt-primary2);
 }
 
 /* .software-used{
@@ -921,9 +690,9 @@ input[type="checkbox"].toggle:checked + label::after {
     6d. not satisfied
 =====================================*/
 .not-satisfied {
-  -ms-grid-row: 18;
-  -ms-grid-row-span: 3;
-  grid-row: 18/21;
+  -ms-grid-row: 17;
+  -ms-grid-row-span: 4;
+  grid-row: 17/21;
   justify-self: left;
   text-align: left;
   -webkit-box-align: left;
@@ -974,8 +743,6 @@ input[type="checkbox"].toggle:checked + label::after {
 
 =====================================*/
 .skills {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
   grid-area: skills;
 }
 
@@ -1045,8 +812,6 @@ input[type="checkbox"].toggle:checked + label::after {
 
 =====================================*/
 .contact {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
   grid-area: contact;
   height: 90vh;
 }
@@ -1159,12 +924,12 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .send-button {
   padding-right: 1rem;
-  color: var(--txt-primary-dark-mode);
+  color: var(--txt-primary);
 }
 
 .send-button input {
   padding: .5rem 1rem;
-  color: var(--txt-primary-dark-mode);
+  color: var(--txt-primary);
 }
 
 .back-to-home {
@@ -1174,10 +939,15 @@ input[type="checkbox"].toggle:checked + label::after {
   -ms-grid-row: 19;
   -ms-grid-row-span: 2;
   grid-row: 19/21;
+  color: var(--btn-four-logos-icons-faded);
 }
 
 .back-to-home h5 {
   line-height: .1rem;
+}
+
+.back-to-home a {
+  color: var(--btn-four-logos-icons-faded);
 }
 
 .back-to-home:hover {
@@ -1198,7 +968,7 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .footer-margin-2 {
   -ms-grid-row: 2;
-  -ms-grid-column: 5;
+  -ms-grid-column: 3;
   grid-area: righttwo;
   background-color: var(--bg-color-drk);
 }
@@ -1207,7 +977,6 @@ input[type="checkbox"].toggle:checked + label::after {
   background-color: var(--bg-color-drk);
   -ms-grid-row: 2;
   -ms-grid-column: 2;
-  -ms-grid-column-span: 3;
   grid-area: footer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1319,8 +1088,6 @@ input[type="checkbox"].toggle:checked + label::after {
 =====================================*/
   .scroll {
     background-color: transparent;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: scroll;
   }
   .scroll-circles {
@@ -1708,22 +1475,19 @@ input[type="checkbox"].toggle:checked + label::after {
     line-height: 1rem;
   }
   .portfolio {
-    max-width: 100vw;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: auto auto auto;
-        grid-template-columns: auto auto auto;
+    -ms-grid-columns: 5vw 90vw 5vw;
+        grid-template-columns: 5vw 90vw 5vw;
         grid-template-areas: "left content right" "lefttwo footer righttwo";
   }
   .scroll {
     background-color: transparent;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: scroll;
   }
-  /*  .scroll-circles{
-        position: absolute;
-    } */
+  .scroll-circles {
+    position: absolute;
+  }
   .scroll-circles li {
     width: 0;
     height: 0;
@@ -1875,8 +1639,6 @@ input[type="checkbox"].toggle:checked + label::after {
   }
   .scroll {
     background-color: transparent;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: scroll;
   }
   .scroll-circles {
@@ -2051,8 +1813,6 @@ input[type="checkbox"].toggle:checked + label::after {
   }
   .scroll {
     background-color: transparent;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: scroll;
   }
   .scroll-circles {
@@ -2145,8 +1905,6 @@ input[type="checkbox"].toggle:checked + label::after {
   }
   .scroll {
     background-color: transparent;
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
     grid-area: scroll;
   }
   .scroll-circles {
@@ -2196,4 +1954,4 @@ input[type="checkbox"].toggle:checked + label::after {
 }
 
 /* extra large screens, TVs*/
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=greenhorn.css.map */

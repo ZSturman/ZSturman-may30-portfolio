@@ -4,25 +4,26 @@
 
 1. resets/ defaults
 2. main grid (margins, footer, portfolio)
-3. scroll-circles
-4. content/ section setup
+3. navigation
+4. scroll-circles
+5. content/ section setup
     a. checkboxes
-5. home/ nav
-6. projects
-    6a. card1
-    6b. card2
-    6c. card3
-    6d. not satisfied
-7. skills
-8. contact
-9. footer
-10. media queries
-    10a. (max-width: 480px)
-    10b. (max-width: 699px) and (min-width: 481px)
-    10c. (max-width: 768px) and (min-width: 700px)
-    10d. (max-width: 1024px) and (min-width: 769px)
-    10e. (max-width: 1340px) and (min-width: 1025px)
-    10f. (min-width: 1201px) <- currently set as default values
+6. home/ nav
+7. projects
+    a. card1
+    b. card2
+    c. card3
+    d. not satisfied
+8. skills
+9. contact
+10. footer
+11. media queries
+    a. (max-width: 480px)
+    b. (max-width: 699px) and (min-width: 481px)
+    c. (max-width: 768px) and (min-width: 700px)
+    d. (max-width: 1024px) and (min-width: 769px)
+    e. (max-width: 1340px) and (min-width: 1025px)
+    f. (min-width: 1201px) <- currently set as default values
 
 =====================================*/
 /* =====================================
@@ -96,8 +97,8 @@
     /* --bg-color: #233554; */
 
 
-    --bg-color-dark-mode: #0f1624;
-    --bg-color-light-mode: #7b9de2;
+    --bg-color-dark-mode: rgb(9, 11, 30);
+    --bg-color-light-mode: #b0c2e6;
 
 
     --bg-color-faded: #0f162469;
@@ -105,11 +106,11 @@
 
     /* Text colors*/
     --txt-primary-dark-mode: rgb(188, 209, 226);
-    --txt-primary-light-mode: rgb(52, 53, 65);
+    --txt-primary-light-mode: rgb(49, 49, 49);
     --txt-btn-light-mode: rgb(164, 213, 231);
 
     --txt-secondary-dark-mode: rgb(172, 199, 198);
-    --txt-secondary-light-mode: rgb(14, 28, 72);
+    --txt-secondary-light-mode: rgb(0, 0, 0);
 
 
     --txt-primary2:rgb(193, 219, 229);
@@ -135,9 +136,6 @@
 
     --btn-scroll-icon: #7daac479;
 
-
-
-
     --btn-one: #71d4df82;
     --btn-two: #58b0ba;
     --btn-three: #6c93aa;
@@ -153,14 +151,8 @@
 html{
     max-width: 100%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;  
 }
-
-
-
-
-
-
 
 body.light{
     background-color: var(--bg-color-light-mode);
@@ -197,7 +189,7 @@ body.light{
 }
 
 body{
-    background-color: var(--bg-color-dark-mode);
+    background: var(--bg-color-dark-mode);
     color: var(--txt-primary-dark-mode);
     font-family: var(--ff);
     transition: all 200ms ease-in-out;
@@ -227,6 +219,7 @@ body{
     }
     .scroll-icon-color{
         color: var(--btn-scroll-icon);
+        opacity: .5;
     }
 }
 
@@ -311,54 +304,122 @@ h6{
     display: grid;
     grid-template-columns: auto minmax(2rem, 5rem) minmax(840px, 1520px) minmax(2rem, 5rem) auto;
     grid-template-areas: 
+        "left navigation navigation scroll-mirror right"
         "left scroll content scroll-mirror right"
         "lefttwo footer footer footer righttwo";
 }
 .margin1{
-    /* background-color: var(--bg-color);
-    grid-area: left; */
-    min-width: 1rem;
-}
-.margin2a{
-    /* background-color: var(--bg-color); */
-    grid-area: scroll-mirror;
-    min-width: 4rem;
-}
-.margin2b{
-    /* background-color: var(--bg-color); */
-    grid-area: right;
-    min-width: 1rem;
-}
-.scroll{
-   /*  background-color: var(--bg-color); */
-    grid-area: scroll;
-}
-/* TESTING */
-/* .margin1{
-    background-color: rgb(70, 31, 70);
     grid-area: left;
     min-width: 1rem;
 }
 .margin2a{
-    background-color: rgb(31, 31, 70);
     grid-area: scroll-mirror;
     min-width: 4rem;
 }
 .margin2b{
-    background-color: rgb(45, 74, 45);
     grid-area: right;
     min-width: 1rem;
 }
 .scroll{
-    background-color: rgb(103, 103, 42);
     grid-area: scroll;
-} */
-
-
+}
 
 /* =====================================
 
-3. scroll-circles
+3. navigation
+
+=====================================*/
+
+.navigation{
+    grid-area: navigation;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    max-height: 10vh;
+    text-align: center;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.logo{
+    width: 60%;
+}
+.logo-small{
+    opacity: 0;
+    transform: translateX(-200%);
+}
+
+.toggles{
+    display: flex;
+    flex-direction: row;
+    color: var(--btn-four-logos-icons);
+    align-items: center;
+
+    i{
+        padding: 1rem;
+    }
+}
+
+.toggles-dark{
+    display: flex;
+    flex-direction: row;
+    padding-right: 2rem;
+}
+/* =====================================
+        a. toggle checkboxes
+=====================================*/
+
+
+input[type="checkbox"].toggle {
+    opacity: 0;
+    position: absolute;
+    left: -9000px;
+    top: -9000px;
+}
+
+input[type="checkbox"].toggle + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"].toggle + label::before {
+    content: "";
+    width: 2em;
+    height: 1.1em;
+    background-color: var(--btn-four-logos-icons);
+    border-radius: 1em;
+    margin-right: .25em;
+    transition: background-color 200ms ease-in-out;
+}
+input[type="checkbox"].toggle + label::after {
+    position: absolute;
+    content: "";
+    left: .1em;
+    width: .9em;
+    height: .9em;
+    background-color: var(--btn-color-drk);
+    border-radius: 1em;
+    transition: background-color 200ms ease-in-out;
+}
+
+input[type="checkbox"].toggle:focus + label::before{
+    outline: 2px solid gray;
+}
+ 
+input[type="checkbox"].toggle:checked + label::before {
+    background-color: var(--btn-color-light);
+}
+input[type="checkbox"].toggle:checked + label::after {
+    transform: translateX(100%);
+    background-color: var(--txt-primary2);
+}
+
+/* =====================================
+
+4. scroll-circles
 
 =====================================*/
 
@@ -389,15 +450,13 @@ h6{
 
 /* =====================================
 
-4. content/ section setup
+5. content/ section setup
 
 =====================================*/
 
 .content{
     position: relative;
-    /* background-color: var(--bg-color); */
     grid-area: content;
-    /* grid-template-rows: 100vh 100vh 100vh 90vh; */
     grid-template-areas: 
         "home"
         "projects"
@@ -405,67 +464,11 @@ h6{
         "contact";
 }
 section{
-    /* background-color: var(--bg-color); */
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(20, 1fr);
     height: 100vh;
 }
-
-/* =====================================
-        a. checkboxes
-=====================================*/
-
-input[type="checkbox"].toggle {
-    opacity: 0;
-    position: absolute;
-    left: -9000px;
-    top: -9000px;
-}
-
-input[type="checkbox"].toggle + label {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-input[type="checkbox"].toggle + label::before {
-    content: "";
-    width: 2em;
-    height: 1em;
-    background-color: var(--btn-four-logos-icons);
-    border-radius: 1em;
-    margin-right: .25em;
-    transition: background-color 200ms ease-in-out;
-}
-input[type="checkbox"].toggle + label::after {
-    position: absolute;
-    content: "";
-    left: .1em;
-    width: .9em;
-    height: .9em;
-    background-color: var(--btn-color-drk);
-    border-radius: 1em;
-    transition: background-color 200ms ease-in-out;
-}
-
-input[type="checkbox"].toggle:focus + label::before{
-    outline: 2px solid gray;
-}
- 
-input[type="checkbox"].toggle:checked + label::before {
-    background-color: var(--btn-color-light);
-}
-input[type="checkbox"].toggle:checked + label::after {
-    transform: translateX(100%);
-    background-color: var(--txt-primary2);
-}
-
-/* input[type="checkbox"].toggle:checked + label {
-    color: red;
-} */
-
 
 /* =====================================
 
@@ -475,51 +478,9 @@ input[type="checkbox"].toggle:checked + label::after {
 
 .home{
     grid-area: home;
-}
-.nav{
-    /* background-color: var(--bg-color); */
-    grid-column: 1 / 11;
-    grid-row: 1/ 4;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.logos{
-    position: relative;
-    top: 40%;
-}
-.logo{
-    width: 50%;
-}
-.logo-small{
-    opacity: 0;
-    transform: translateX(-200%);
+    height: 90vh;
 }
 
-.toggles{
-    display: flex;
-    flex-direction: row;
-    color: var(--btn-four-logos-icons);
-    align-items: center;
-
-    i{
-        padding: 1rem;
-    }
-}
-
-.toggles-dark{
-    display: flex;
-    flex-direction: row;
-    padding-right: 2rem;
-}
-.toggles-depth{
-    display: flex;
-    flex-direction: row;
-}
-/* .faded{
-    color: var(--btn-four-logos-icons-faded);
-} */
 .name{
     grid-row: 7/11;
     justify-self: left;
@@ -965,6 +926,85 @@ input[type="checkbox"].toggle:checked + label::after {
     opacity: 0;
     transform: translateX(-200%);
 }
+
+
+/* =====================================
+        Projects Page
+=====================================*/
+
+.projects-page{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: auto  minmax(840px, 1520px) auto;
+    grid-template-areas: 
+        "left navigation right"
+        "left project-content right"
+        "left social-links right"
+        "lefttwo footer righttwo";
+
+    .margin1{
+        grid-area: left;
+        min-width: 1rem;
+    }
+        
+    .margin2{
+        grid-area: right;
+        min-width: 1rem;
+    }
+
+    .logo{
+        transform: translateX(-30%);
+    }
+    
+    .footer-margin-1{
+        grid-area: lefttwo;
+    }
+    .footer-margin-2{
+        grid-area: righttwo;
+    }
+    .projects-content{
+        grid-area: project-content;   
+        width: 100%;
+        position: relative;
+
+    /*     .scroll-icon{
+            position: sticky;
+            bottom: 0%;
+            
+        } */
+
+        .social-links-container{
+            grid-area: social-links;
+            grid-column: 1/11;
+            position: sticky;
+            justify-self: center;
+            bottom: 0;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            .scroll-icon{
+                transform: translateY(-30%);
+            }
+
+            .social-links{
+                opacity: .7;
+                
+                li{
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,6 @@ darkMode.addEventListener("change", () => {
 
 
 
-
 /* =====================================
 
     scroll circles
